@@ -9,10 +9,6 @@ module.exports = React.createClass({
   toggleCreateUser: function(){
     this.setState({active: !this.state.active})
   },
-  addUser: function(newUser){
-    this.props.title: 'jimbo';
-    this.setState();
-  },
 	render: function() {
 		return (
       <div className="col-sm-4 col-md-4">
@@ -51,7 +47,7 @@ module.exports = React.createClass({
                     <button onClick={this.toggleCreateUser}
                       className="btn btn-default btn-lg pull-left">Cancel</button>
 
-                    <button onClick={this.addUser('hey')} className="btn btn-primary btn-lg pull-right">Submit</button>
+                    <button className="btn btn-primary btn-lg pull-right">Submit</button>
                 </div>
 
               </div>
