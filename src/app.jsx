@@ -1,4 +1,5 @@
-var UsersGrid = require('./users-grid');
+var TestButton = require('./button');
+var CreateCard = require('./createCard')
 
 var options = {
     usersInfo: [{
@@ -8,5 +9,5 @@ var options = {
     }]
 };
 
-var element = React.createElement(UsersGrid, options);
+var element = React.createElement(CreateCard, options);
 React.render(element, document.querySelector('.container'));
