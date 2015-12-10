@@ -1,13 +1,15 @@
 var UsersGrid = require('./users-grid');
 var CreateCard = require('./createCard')
-var UsersGrid = require('./users-grid')
+var mongoose = require('mongoose')
 
 var options = {
     usersInfo: [{
         username: 'Clay Ellis'
     },{
         username: 'Joey Nelson'
-    }]
+    }],
+
+    title: 'johnny'
 };
 
 var element = React.createElement(UsersGrid, options);
