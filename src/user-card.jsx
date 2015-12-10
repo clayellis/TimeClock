@@ -3,7 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      clockedIn: true,
+      clockedIn: false,
       clocking: false
     }
   },
@@ -12,11 +12,11 @@ module.exports = React.createClass({
       this.setState({
         clocking: false,
         clockedIn: !this.state.clockedIn
-        console.log('clocked ' + (this.state.clockedIn ? 'out' : 'in'))
-     })
+      })
+      console.log("clocked " + (this.state.clockedIn ? "in" : "out"));
     } else {
       this.setState({ clocking: true })
-      console.log('clocking ' + (this.state.clockedIn ? 'out' : 'in'))
+      console.log("clocking " + (this.state.clockedIn ? "in" : "out"));
     }
   },
   render: function() {

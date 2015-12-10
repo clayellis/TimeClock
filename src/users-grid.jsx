@@ -1,6 +1,6 @@
 var React = require('react');
 var UserCard = require('./user-card');
-// var CreateCard = require('./createCard');
+var CreateCard = require('./createCard');
 
 module.exports = React.createClass({
     render: function() {
@@ -10,6 +10,7 @@ module.exports = React.createClass({
 
         return <div>
             {usercards}
+            <CreateCard />
         </div>
     }
 });
