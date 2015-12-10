@@ -48,40 +48,38 @@ module.exports = React.createClass({
     }
   },
   render: function() {
+    // Properties - value = the pin text field's value
     var value = this.state.value
+
+    // Other components
+    var title = (<h3 className="text-center">{this.props.username}</h3>)
+
+    var clockImage = (<img src={"./resources/" + (this.state.clockedIn ? "clocked_in" : "clocked_out") + ".png"}
+                        className={"img-responsive center-block " + (this.state.clocking ? "hidden" : "")}>
+                      </img>)
+
+    var pinField = (<div className={"input-group input-group-lg " + (this.state.clocking ? "" : "hidden")}>
+                      <span className="input-group-addon" id="basic-addon1">
+                          <span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                      </span>
+                      <input value={value} onChange={this.handlePinFieldChange} type="password" className="form-control" placeholder="PIN" aria-describedby="basic-addon1"></input>
+                    </div>)
+
+    var button = (<div className="btn-toolbar">
+                    <a onClick={this.handleClick} className="btn btn-lg btn-primary btn-block">{this.state.buttonText}</a>
+                  </div>)
 
     return <div className="col-sm-4 col-md-4">
         <div className="thumbnail">
-
-          <div className="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
-            <strong>Warning!</strong> Better check yourself, you're not looking too good.
-          </div>
-
           <div className="caption">
-
-            <h3 className="text-center">{this.props.username}</h3>
-
+            {title}
             <div className="row top30"></div>
-            <img
-              src={"./resources/" + (this.state.clockedIn ? "clocked_in" : "clocked_out") + ".png"}
-              className={"img-responsive center-block " + (this.state.clocking ? "hidden" : "")}>
-            </img>
-
+            {clockImage}
             <div className="row top30"></div>
-            <div className={"input-group input-group-lg " + (this.state.clocking ? "" : "hidden")}>
-                <span className="input-group-addon" id="basic-addon1">
-                    <span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                </span>
-              <input value={value} onChange={this.handlePinFieldChange} type="password" className="form-control" placeholder="PIN" aria-describedby="basic-addon1"></input>
-            </div>
-
+            {pinField}
             <div className={"row preserveHeight " + (this.state.clocking ? "" : "hidden")}></div>
-
+            {button}
             <div className="row top15"></div>
-            <div className="btn-toolbar">
-              <a onClick={this.handleClick} className="btn btn-lg btn-primary btn-block">{this.state.buttonText}</a>
-            </div>
           </div>
         </div>
     </div>
