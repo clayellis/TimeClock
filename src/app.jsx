@@ -1,8 +1,12 @@
-var TestButton = require('./button');
+var UsersGrid = require('./users-grid');
 
 var options = {
-    title: 'If you see me...'
+    usersInfo: [{
+        username: 'Clay Ellis'
+    },{
+        username: 'Joey Nelson'
+    }]
 };
 
-var element = React.createElement(TestButton, options);
+var element = React.createElement(UsersGrid, options);
 React.render(element, document.querySelector('.container'));
