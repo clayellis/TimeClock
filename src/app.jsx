@@ -1,3 +1,4 @@
+var UsersGrid = require('./users-grid');
 var CreateCard = require('./createCard')
 var UsersGrid = require('./users-grid')
 
