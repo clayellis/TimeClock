@@ -2,7 +2,11 @@ var TestButton = require('./button');
 var CreateCard = require('./createCard')
 
 var options = {
-    title: 'If you see me...'
+    usersInfo: [{
+        username: 'Clay Ellis'
+    },{
+        username: 'Joey Nelson'
+    }]
 };
 
 var element = React.createElement(CreateCard, options);

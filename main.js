@@ -19873,22 +19873,84 @@ var TestButton = require('./button');
 var CreateCard = require('./createCard')
 
 var options = {
-    title: 'If you see me...'
+    usersInfo: [{
+        username: 'Clay Ellis'
+    },{
+        username: 'Joey Nelson'
+    }]
 };
 
 var element = React.createElement(CreateCard, options);
 React.render(element, document.querySelector('.container'));
 
 },{"./button":"/Users/nelsonje/Documents/TimeClock/src/button.jsx","./createCard":"/Users/nelsonje/Documents/TimeClock/src/createCard.jsx"}],"/Users/nelsonje/Documents/TimeClock/src/button.jsx":[function(require,module,exports){
+
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
-    handleClick: function() {
-        console.log('We\'re up!')
-    },
+  getInitialState: function() {
+    return {
+      clockedIn: true,
+      clocking: false
+    }
+  },
+  handleClick: function() {
+    if (this.state.clocking) {
+      this.setState({
+        clocking: false,
+        clockedIn: !this.state.clockedIn
+     })
+    } else {
+      this.setState({ clocking: true })
+      console.log('clocking ' + (this.state.clockedIn ? 'out' : 'in'))
+    }
+  },
+  render: function() {
+    return React.createElement("div", {className: "col-sm-4 col-md-4"},
+        React.createElement("div", {className: "thumbnail"},
+            React.createElement("div", {className: "caption"},
+
+              React.createElement("h3", {className: "text-center"}, this.props.username),
+
+              React.createElement("div", {className: "row top30"}),
+              React.createElement("img", {
+                src: "./resources/" + (this.state.clockedIn ? "clocked_in" : "clocked_out") + ".png",
+                className: "img-responsive center-block"}
+              ),
+
+              React.createElement("div", {className: "row top30"}),
+              React.createElement("div", {className: "input-group input-group-lg"},
+                  React.createElement("span", {className: "input-group-addon", id: "basic-addon1"},
+                      React.createElement("span", {className: "glyphicon glyphicon-lock", "aria-hidden": "true"})
+                  ),
+                React.createElement("input", {type: "password", className: "form-control", placeholder: "PIN", "aria-describedby": "basic-addon1"})
+              ),
+
+              React.createElement("div", {className: "row top15"}),
+              React.createElement("p", null, React.createElement("a", {
+                onClick: this.handleClick,
+                className: "btn btn-lg btn-primary btn-block"}, this.state.clockedIn ? "Clock Out" : "Clock In"
+              ))
+
+            )
+        )
+    )
+  }
+});
+
+},{"react":"/Users/Clay/Documents/School/6-Fall-2015/cs360/Labs/TimeClock/node_modules/react/react.js"}],"/Users/Clay/Documents/School/6-Fall-2015/cs360/Labs/TimeClock/src/users-grid.jsx":[function(require,module,exports){
+var React = require('react');
+var UserCard = require('./user-card');
+// var CreateCard = require('./createCard');
+
+module.exports = React.createClass({displayName: "exports",
     render: function() {
-        return React.createElement("button", {onClick: this.handleClick, className: "btn btn-default", type: "button"}, 
-            this.props.title
+        var usercards = this.props.usersInfo.map(function(userProps) {
+            return React.createElement(UserCard, React.__spread({},  userProps))
+        });
+
+        return React.createElement("div", null,
+            usercards
         )
     }
 });
@@ -19907,22 +19969,22 @@ module.exports = React.createClass({displayName: "exports",
   },
 	render: function() {
 		return (
-      React.createElement("div", {className: "col-sm-3 col-md-3"}, 
-        React.createElement("div", {className: "caption text-center thumbnail"}, 
-          React.createElement("h1", null, "New User"), 
+      React.createElement("div", {className: "col-sm-3 col-md-3"},
+        React.createElement("div", {className: "caption text-center thumbnail"},
+          React.createElement("h1", null, "New User"),
 
-          React.createElement("div", null, 
-            React.createElement("p", null, React.createElement("input", {type: "text", className: "form-control text-center " + (this.state.active ? "" : "hidden"), placeholder: "Name"})), 
-            React.createElement("p", null, React.createElement("input", {type: "text", className: "form-control text-center " + (this.state.active ? "" : "hidden"), placeholder: "PIN"})), 
+          React.createElement("div", null,
+            React.createElement("p", null, React.createElement("input", {type: "text", className: "form-control text-center " + (this.state.active ? "" : "hidden"), placeholder: "Name"})),
+            React.createElement("p", null, React.createElement("input", {type: "text", className: "form-control text-center " + (this.state.active ? "" : "hidden"), placeholder: "PIN"})),
 
-            React.createElement("div", null, 
-              React.createElement("button", {className: "btn btn-link " + (this.state.active ? "hidden" : "")}, 
+            React.createElement("div", null,
+              React.createElement("button", {className: "btn btn-link " + (this.state.active ? "hidden" : "")},
                    React.createElement("img", {onClick: this.toggleCreateUser, src: "https://cdn0.iconfinder.com/data/icons/math-business-icon-set/93/1_1-512.png", width: "120"})
               )
-            ), 
+            ),
 
-            React.createElement("div", {className: "btn-toolbar " + (this.state.active ? "" : "hidden")}, 
-                React.createElement("button", {onClick: this.toggleCreateUser, className: "btn btn-default pull-left"}, "Cancel"), 
+            React.createElement("div", {className: "btn-toolbar " + (this.state.active ? "" : "hidden")},
+                React.createElement("button", {onClick: this.toggleCreateUser, className: "btn btn-default pull-left"}, "Cancel"),
                 React.createElement("button", {className: "btn btn-primary pull-right"}, "Submit")
             )
 
