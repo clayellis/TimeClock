@@ -1,5 +1,6 @@
 var UsersGrid = require('./users-grid');
 var CreateCard = require('./createCard')
+var Footer = require('./footer')
 var mongoose = require('mongoose')
 
 var options = {
@@ -8,9 +9,7 @@ var options = {
     },{
         username: 'Joey Nelson'
     }],
-
-    title: 'johnny'
 };
 
-var element = React.createElement(UsersGrid, options);
+var element = React.createElement(Footer, options);
 React.render(element, document.querySelector('.container'));
