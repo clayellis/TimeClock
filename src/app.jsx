@@ -1,4 +1,5 @@
 var UsersGrid = require('./users-grid');
+var CreateCard = require('./createCard')
 
 var options = {
     usersInfo: [{
