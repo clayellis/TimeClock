@@ -55,7 +55,7 @@ module.exports = React.createClass({
 
     var addButtonImage = (
       <div>
-         <img className={"img-responsive center-block hoverPointerImage " + (this.state.active ? "hidden" : "")}
+         <img className={"img-responsive center-block hover-pointer " + (this.state.active ? "hidden" : "")}
            onClick={this.toggleCreateUser}
            src={"./resources/add_user.png"} />
       </div>
@@ -77,9 +77,10 @@ module.exports = React.createClass({
     )
 
     var buttonGroup = (
-      <div className={"panel-footer row " + (this.state.active ? "" : "hidden")}>
-          <button className={"btn btn-primary btn-lg btn-half " + (this.state.validPin && this.state.validName ? "" : "disabled")}>Submit</button>
-          <button onClick={this.toggleCreateUser} className="btn btn-default btn-lg btn-half ">Cancel</button>
+
+        <div className={"container-fluid row " + (this.state.active ? "" : "hidden")}>
+          <button className={"btn btn-primary btn-lg btn-half pull-left " + (this.state.validPin && this.state.validName ? "" : "disabled")}>Submit</button>
+          <button onClick={this.toggleCreateUser} className="btn btn-default btn-lg btn-half pull-right ">Cancel</button>
       </div>
     )
 
@@ -90,13 +91,15 @@ module.exports = React.createClass({
             {headerLabel}
             <div className="row space30"></div>
             <div>
+              <div className={"row newUserImageTopSpace" + (this.state.active ? "hidden" : "")}></div>
               {addButtonImage}
-              <div className={"row space30" + (this.state.active ? "hidden" : "")}></div>
+              <div className={"row newUserImageBotSpace" + (this.state.active ? "hidden" : "")}></div>
               {nameInput}
               <div className="row space5"></div>
               {passwordInput}
-              <div className="row space5"></div>
+              <div className={"row space25" + (this.state.active ? "" : "hidden")}></div>
               {buttonGroup}
+              <div className="row space17"></div>
             </div>
           </div>
         </div>
