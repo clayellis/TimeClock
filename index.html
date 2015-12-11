@@ -22,11 +22,6 @@
       <h1>
 <a id="timetracker-wiki" class="anchor" href="#timetracker-wiki" aria-hidden="true"><span class="octicon octicon-link"></span></a>TimeTracker Wiki</h1>
 
-<h2>
-<a id="description-of-our-project" class="anchor" href="#description-of-our-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description of our project</h2>
-
-<p>TimeTracker is a web app that allows users to keep a log of the hours they have spent working.  </p>
-
 <ul>
 <li>Ever struggle with keeping track of how long you've been working on a project?<br>
 </li>
@@ -53,7 +48,12 @@
 <h2>
 <a id="database-schema" class="anchor" href="#database-schema" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database Schema</h2>
 
-<p><strong>USER</strong></p>
+<p><strong>USER</strong><br>
+ -<em>name</em>: User's name<br>
+ -<em>pin</em>: User's 4-digit PIN used to securely clock-in/out<br>
+ -<em>startDate</em>: Date User joined TimeTracker<br>
+ -<em>lastClockIn</em>: Time of User's most recent clock-in<br>
+ -<em>totalTime</em>: Count of User's total time worked  </p>
 
 <h2>
 <a id="future-work" class="anchor" href="#future-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Work</h2>
@@ -63,6 +63,7 @@
 </li>
 <li>Allow users to edit log entries<br>
 </li>
+<li>Implement analytics to allow users to see their activity and that of others</li>
 </ul>
 
 <h3>
