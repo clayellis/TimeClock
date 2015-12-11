@@ -1,11 +1,29 @@
 var React = require('react')
 
 module.exports = React.createClass({
+
+
   getInitialState: function() {
     return {
       numberFilter: true,
       nameFilter: false,
-      hoursFilter: false
+      hoursFilter: false,
+
+      reportInfo: [
+        {
+           name: 'Johnny Cage',
+           totalHours: 10.5,
+           number: 1
+         },{
+           name: 'Angus Stone',
+           totalHours: 42.0,
+           number: 2
+         },{
+           name: 'Ford Prefect',
+           totalHours: 32.6,
+           number: 3
+         }
+       ],
     }
   },
 
@@ -33,9 +51,9 @@ filterHours: function(){
 
 render: function(){
 
-  var person1 = this.props.reportInfo[0]
-  var person2 = this.props.reportInfo[1]
-  var person3 = this.props.reportInfo[2]
+  var person1 = this.state.reportInfo[0]
+  var person2 = this.state.reportInfo[1]
+  var person3 = this.state.reportInfo[2]
 
   var caret = (
     <span className="badge" id="basic-addon1">
@@ -49,9 +67,9 @@ render: function(){
         <table className="table table-striped">
           <thead>
             <tr>
-              <th><button id="#" onClick={this.filterNumber} className={"btn btn-default " + (this.state.numberFilter ? "btn-primary" : "")}>#</button></th>
-              <th><button id="name" onClick={this.filterName} className={"btn btn-default " + (this.state.nameFilter ? "btn-primary" : "")}>Name</button></th>
-              <th><button id="totalHours" onClick={this.filterHours} className={"btn btn-default " + (this.state.hoursFilter ? "btn-primary" : "")}>Total Hours</button></th>
+              <th><button id="#" onClick={this.filterNumber} className={"btn btn-default text-bold " + (this.state.numberFilter ? "btn-primary active" : "")}>#</button></th>
+              <th><button id="name" onClick={this.filterName} className={"btn btn-default " + (this.state.nameFilter ? "btn-primary active" : "")}>Name</button></th>
+              <th><button id="totalHours" onClick={this.filterHours} className={"btn btn-default " + (this.state.hoursFilter ? "btn-primary active" : "")}>Total Hours</button></th>
             </tr>
           </thead>
           <tbody>
