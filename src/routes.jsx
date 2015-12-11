@@ -6,12 +6,13 @@ var Route = ReactRouter.Route;
 
 var Main = require('./components/main');
 var UsersGrid = require('./components/users-grid');
+var Report = require('./components/report')
 
 module.exports = (
   <Router history={new HashHistory}>
     <Route path="/" component={Main}>
       <Route path="time" component={UsersGrid}/>
-      <Route path="report" component={UsersGrid}/>
+      <Route path="report" component={Report}/>
     </Route>
   </Router>
 )
