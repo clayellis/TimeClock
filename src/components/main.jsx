@@ -7,6 +7,7 @@ module.exports = React.createClass({
     return <div>
         <Header />
         {this.props.children}
+        <div className="space100"></div>
         <Footer />
       </div>
   }
