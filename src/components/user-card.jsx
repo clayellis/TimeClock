@@ -1,6 +1,7 @@
 var React = require('react');
 
 module.exports = React.createClass({
+
   getInitialState: function() {
     return {
       clockedIn: false,
@@ -9,6 +10,7 @@ module.exports = React.createClass({
       value: ""
     }
   },
+
   handleClick: function() {
     if (this.state.clocking) {
       // Clicked cancel
@@ -25,6 +27,7 @@ module.exports = React.createClass({
       })
     }
   },
+
   handlePinFieldChange: function(event) {
     var pin = event.target.value
 
@@ -47,6 +50,7 @@ module.exports = React.createClass({
       }
     }
   },
+
   render: function() {
     // Properties - value = the pin text field's value
     var value = this.state.value
@@ -73,13 +77,13 @@ module.exports = React.createClass({
         <div className="thumbnail">
           <div className="caption">
             {title}
-            <div className="row top30"></div>
+            <div className="row space30"></div>
             {clockImage}
-            <div className="row top30"></div>
+            <div className="row space30"></div>
             {pinField}
             <div className={"row preserveHeight " + (this.state.clocking ? "" : "hidden")}></div>
             {button}
-            <div className="row top15"></div>
+            <div className="row space15"></div>
           </div>
         </div>
     </div>
