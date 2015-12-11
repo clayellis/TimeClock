@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+
 module.exports = React.createClass({
   render: function() {
     return (
@@ -21,6 +22,7 @@ module.exports = React.createClass({
           <div className="collapse navbar-collapse" id="bs-example-navbarr-collapse-1">
             <ul className="nav navbar-nav">
               <li><Link to="time">Time</Link></li>
+              <li><Link to="report">Report</Link></li>
             </ul>
           </div>
         </div>

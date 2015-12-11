@@ -10,7 +10,8 @@ var UsersGrid = require('./components/users-grid');
 module.exports = (
   <Router history={new HashHistory}>
     <Route path="/" component={Main}>
-    <Route path="time" component={UsersGrid}/>
+      <Route path="time" component={UsersGrid}/>
+      <Route path="report" component={UsersGrid}/>
     </Route>
   </Router>
 )
