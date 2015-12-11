@@ -3,13 +3,14 @@ var mongoose = require('mongoose');
 
 module.exports = React.createClass({
 
-
   getInitialState: function(){
     return {active: false }
   },
+
   toggleCreateUser: function(){
     this.setState({active: !this.state.active})
   },
+  
 	render: function() {
 
     var headerLabel = (
