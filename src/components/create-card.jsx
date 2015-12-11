@@ -1,5 +1,4 @@
 var React = require('react');
-var mongoose = require('mongoose');
 
 module.exports = React.createClass({
 
@@ -10,7 +9,7 @@ module.exports = React.createClass({
   toggleCreateUser: function(){
     this.setState({active: !this.state.active})
   },
-  
+
 	render: function() {
 
     var headerLabel = (

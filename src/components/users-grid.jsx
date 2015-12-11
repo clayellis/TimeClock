@@ -1,6 +1,6 @@
 var React = require('react');
 var UserCard = require('./user-card');
-var CreateCard = require('./createCard');
+var CreateCard = require('./create-card');
 
 module.exports = React.createClass({
 

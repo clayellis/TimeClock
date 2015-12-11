@@ -5,10 +5,12 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 
 var Main = require('./components/main');
+var UsersGrid = require('./components/users-grid');
 
 module.exports = (
   <Router history={new HashHistory}>
     <Route path="/" component={Main}>
+    <Route path="time" component={UsersGrid}/>
     </Route>
   </Router>
 )
